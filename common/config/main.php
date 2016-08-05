@@ -5,5 +5,21 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'urlManager' => [
+            'baseUrl' => '/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
+    ],
+    'bootstrap' => [
+        [
+            'class' => 'common\components\LanguageSelector',
+            'supportedLanguages' => ['en_US', 'ru_RU'],
+        ],
     ],
 ];
