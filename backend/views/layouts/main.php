@@ -92,14 +92,13 @@ AppAsset::register($this);
             <?= $content ?>
         </section>
     </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.1.0
+        </div>
+        <strong>Copyright &copy; <?= date('Y')==2016 ? date('Y') : "2016 - ".date('Y') ?>, Witty CMS. All rights reserved
+    </footer>
 </div>
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
