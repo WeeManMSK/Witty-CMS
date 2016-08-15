@@ -45,13 +45,34 @@ AppAsset::register($this);
             </a>
         </nav>
     </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <?= Menu::widget([
+                'items' => \backend\helper\Menu::Items(),
+                'encodeLabels' => false,
+                'options'=> [
+                    'class'=>'sidebar-menu'
+                ],
+                'itemOptions' => [
+                    'class' => 'treeview'
+                ],
+                'submenuTemplate' => "\n<ul class='treeview-menu'>\n{items}\n</ul>\n"
+            ]);?>
+        </section>
+    </aside>
 </div>
 
 <div class="wrap">
 
-    <?= Menu::widget([
-        'items' => \backend\helper\Menu::Items(),
-    ]);?>
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
