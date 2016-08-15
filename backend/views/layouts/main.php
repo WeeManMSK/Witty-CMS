@@ -69,19 +69,30 @@ AppAsset::register($this);
             ]);?>
         </section>
     </aside>
-</div>
-
-<div class="wrap">
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                <?= $this->title ?>
+                <small><?= isset($this->subtitle) ? $this->subtitle : "" ?></small>
+            </h1>
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'encodeLabels' => false,
+                'homeLink' => [
+                    'label' => '<i class="fa fa-dashboard"></i>Главная',
+                    'url' => '/'
+                ],
+                'tag' => 'ol',
+                'options'=> [
+                    'class' => 'breadcrumb'
+                ]
+            ]) ?>
+        </section>
+        <section class="content">
+            <?= $content ?>
+        </section>
     </div>
 </div>
-
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
