@@ -14,9 +14,12 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/AdminLTE.min.css',
-        'plugins/font-awesome-4.6.3/font-awesome.min.css'
+        'css/skins/_all-skins.min.css',
+        'plugins/font-awesome-4.6.3/css/font-awesome.min.css'
     ];
     public $js = [
+        'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js',
+        'js/app.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
