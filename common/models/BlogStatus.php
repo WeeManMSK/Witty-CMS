@@ -31,6 +31,7 @@ class BlogStatus extends \yii\db\ActiveRecord
     {
         return [
             [['code'], 'required'],
+            [['code'], 'unique'],
             [['is_deleted'], 'integer'],
             [['code', 'description'], 'string', 'max' => 255],
         ];
