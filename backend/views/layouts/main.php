@@ -6,7 +6,6 @@
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
 use yii\widgets\Menu;
 
 AppAsset::register($this);
@@ -79,7 +78,7 @@ AppAsset::register($this);
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 'encodeLabels' => false,
                 'homeLink' => [
-                    'label' => '<i class="fa fa-dashboard"></i>Главная',
+                    'label' => '<i class="fa fa-dashboard"></i>Main',
                     'url' => '/'
                 ],
                 'tag' => 'ol',

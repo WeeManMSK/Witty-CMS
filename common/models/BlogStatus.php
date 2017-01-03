@@ -16,6 +16,11 @@ use yii;
  */
 class BlogStatus extends \yii\db\ActiveRecord
 {
+    
+    const DRAFT = 'draft';
+    const MODERATION = 'moderation';
+    const ACTIVE = 'active';
+    const HIDDEN = 'hidden';
     /**
      * @inheritdoc
      */
