@@ -26,4 +26,29 @@ class BlogController extends BaseController
             'blog_records' => $this->blogService->search(Yii::$app->request->getQueryParams())
         ]);
     }
+
+    public function actionCreate(){
+        $blog = $this->blogService->createBlank();
+
+        if ($blog->load(Yii::$app->request->post()) && $blog->validate()){
+            $this->blogService->save($blog);
+            $this->redirect(['update', 'id' => $blog->id]);
+        }
+
+        return $this->render('create', [
+            'blog' => $blog
+        ]);
+    }
+
+    public function actionUpdate($id){
+        $blog = $this->blogService->get($id);
+
+        if ($blog->load(Yii::$app->request->post()) && $blog->validate()){
+            $this->blogService->save($blog);
+        }
+
+        return $this->render('update', [
+            'blog' => $blog
+        ]);
+    }
 }
