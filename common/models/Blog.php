@@ -39,6 +39,7 @@ class Blog extends \yii\db\ActiveRecord
             [['created_by', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
+            [['subtitle', 'ur'], 'string', 'max' => 100],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogStatus::className(), 'targetAttribute' => ['status' => 'id']],
         ];
@@ -52,6 +53,8 @@ class Blog extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'subtitle' => 'Subtitle',
+            'url' => 'Url',
             'content' => 'Content',
             'created_by' => 'Created By',
             'status_id' => 'Status',
