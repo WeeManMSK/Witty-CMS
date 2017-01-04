@@ -1,9 +1,9 @@
 <?php
 $this->params['breadcrumbs'][] = [
-    'label'=>"Блог",
+    'label'=>"Blog",
     'url'=> ['index']];
-$this->params['breadcrumbs'][] = 'Добавление';
-$this->title='Добавление новой записи';
+$this->params['breadcrumbs'][] = 'Add';
+$this->title='Add new post';
 
 /**
  * @var \yii\web\View $this

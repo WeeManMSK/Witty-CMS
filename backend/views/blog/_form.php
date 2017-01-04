@@ -26,7 +26,7 @@ $form = ActiveForm::begin([
 
     <div class="box box-default">
     <div class="box-header with-border">
-        <h3 class="box-title">Основные параметры</h3>
+        <h3 class="box-title">Main fields</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
         </div>
@@ -46,7 +46,7 @@ $form = ActiveForm::begin([
                     'buttonOptions' => ['class' => 'btn btn-default'],
                     'multiple'      => false
                 ]); ?>
-                <?= $form->field($blog, 'body', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
+                <?= $form->field($blog, 'content', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
                     'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
                             'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
                             'inline' => false, //по умолчанию false,
