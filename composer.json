@@ -15,7 +15,8 @@
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "fxp/composer-asset-plugin": "v1.2.0",
-    "dlds/yii2-summernote": "1.2"
+    "mihaildev/yii2-elfinder": "*",
+    "mihaildev/yii2-ckeditor": "*"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
