@@ -28,7 +28,10 @@ class BlogService implements IBlogService
      */
     public function createBlank() : Blog
     {
-        return new Blog();
+        $model = new Blog();
+        $model->created_by = \Yii::$app->user->id;
+
+        return $model;
     }
 
     /**
