@@ -3,6 +3,7 @@
 namespace common\models;
 
 use yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%blog}}".
@@ -41,7 +42,7 @@ class Blog extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['image_url'], 'string', 'max' => 1000],
-            [['subtitle', 'ur'], 'string', 'max' => 100],
+            [['subtitle', 'url'], 'string', 'max' => 100],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogStatus::className(), 'targetAttribute' => ['status' => 'id']],
         ];
@@ -81,5 +82,17 @@ class Blog extends \yii\db\ActiveRecord
     public function getStatus()
     {
         return $this->hasOne(BlogStatus::className(), ['id' => 'status_id']);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className()
+            ]
+        ];
     }
 }
