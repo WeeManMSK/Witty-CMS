@@ -31,7 +31,7 @@ class BlogService implements IBlogService
     {
         $model = new Blog();
         $model->created_by = \Yii::$app->user->id;
-        $model->status_id = BlogStatus::DRAFT;
+        $model->status_id = BlogStatus::findOne(['code'=>BlogStatus::DRAFT])->id;
 
         return $model;
     }
