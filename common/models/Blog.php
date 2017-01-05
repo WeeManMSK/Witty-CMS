@@ -35,7 +35,7 @@ class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'created_by', 'status', 'created_at'], 'required'],
+            [['title', 'content', 'created_by', 'status_id', 'created_at'], 'required'],
             [['content'], 'string'],
             [['created_by', 'status'], 'integer'],
             [['is_visible'], 'boolean'],
@@ -44,7 +44,7 @@ class Blog extends \yii\db\ActiveRecord
             [['image_url'], 'string', 'max' => 1000],
             [['subtitle', 'url'], 'string', 'max' => 100],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogStatus::className(), 'targetAttribute' => ['status' => 'id']],
+            [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogStatus::className(), 'targetAttribute' => ['status_id' => 'id']],
         ];
     }
 
