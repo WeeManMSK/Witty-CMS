@@ -3,6 +3,7 @@
 namespace common\services\implementations;
 
 use common\models\Blog;
+use common\models\BlogStatus;
 use common\models\search\BlogSearch;
 use common\services\interfaces\IBlogService;
 use yii\data\ActiveDataProvider;
@@ -30,6 +31,7 @@ class BlogService implements IBlogService
     {
         $model = new Blog();
         $model->created_by = \Yii::$app->user->id;
+        $model->status_id = BlogStatus::DRAFT;
 
         return $model;
     }
