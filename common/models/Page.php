@@ -2,7 +2,8 @@
 
 namespace common\models;
 
-use Yii;
+use yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "wt_page".
@@ -26,7 +27,7 @@ class Page extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'wt_page';
+        return '{{%page}}';
     }
 
     /**
@@ -38,7 +39,7 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'body', 'authorId'], 'required'],
             [['body'], 'string'],
             [['authorId', 'modifiedById', 'isDeleted'], 'integer'],
-            [['createdAt', 'modifiedAt'], 'safe'],
+            [['created_At', 'updated_At'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['title'], 'unique'],
             [['authorId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['authorId' => 'id']],
@@ -78,4 +79,18 @@ class Page extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'modifiedById']);
     }
+
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className()
+            ]
+        ];
+    }
+
+
 }
