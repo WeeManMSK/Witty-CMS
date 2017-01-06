@@ -4,11 +4,7 @@
  * @var \common\models\Blog $blog
  */
 use backend\helper\ErrorHelper;
-use backend\helper\FormHelper;
 use backend\extensions\WtHtml;
-use mihaildev\ckeditor\CKEditor;
-use mihaildev\elfinder\ElFinder;
-use mihaildev\elfinder\InputFile;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -34,25 +30,24 @@ $form = ActiveForm::begin([
     <div class="box-body">
         <div class="row">
             <div class="col-md-12">
-                <?= $form->field($blog, 'title', FormHelper::FormHorizontalFieldOptions)->textInput() ?>
-                <?= $form->field($blog, 'subtitle', FormHelper::FormHorizontalFieldOptions)->textInput() ?>
-                <?= $form->field($blog, 'url', FormHelper::FormHorizontalFieldOptions)->textInput() ?>
-                <?= $form->field($blog, 'image_url', FormHelper::FormHorizontalFieldOptions)->widget(InputFile::className(), [
-                    'language'      => 'ru',
-                    'controller'    => 'elfinder',
-                    'filter'        => 'image',
-                    'template'      => '<div class="input-group">{input}<span class="input-group-btn">{button}</span></div>',
-                    'options'       => ['class' => 'form-control'],
-                    'buttonOptions' => ['class' => 'btn btn-default'],
-                    'multiple'      => false
-                ]); ?>
-                <?= $form->field($blog, 'content', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
-                    'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-                            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                            'inline' => false, //по умолчанию false,
-                        ]
-                    )]) ?>
-                <?= $form->field($blog, 'is_visible',  FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Basic data</a></li>
+                        <li><a href="#tab_2" data-toggle="tab">Advanced</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">Other</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <?= $this->render('_basic', ['blog'=>$blog, 'form'=>$form ])?>
+                        </div>
+                        <div class="tab-pane" id="tab_2">
+                            <?= $this->render('_advanced', ['blog'=>$blog, 'form'=>$form ])?>
+                        </div>
+                        <div class="tab-pane" id="tab_3">
+                            <?= $this->render('_other', ['blog'=>$blog, 'form'=>$form ])?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="box-footer">
