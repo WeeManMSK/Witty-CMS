@@ -30,4 +30,9 @@ interface IBlogService
      * @throws NotFoundHttpException
      */
     public function get(int $id) : Blog;
+
+    /**
+     * @param int $id
+     */
+    public function delete(int $id);
 }

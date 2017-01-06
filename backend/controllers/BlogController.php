@@ -51,4 +51,10 @@ class BlogController extends BaseController
             'blog' => $blog
         ]);
     }
+    
+    public function actionDelete($id){
+        $this->blogService->delete($id);
+        
+        $this->redirect(['index']);
+    }
 }

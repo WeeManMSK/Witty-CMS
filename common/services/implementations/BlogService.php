@@ -60,4 +60,13 @@ class BlogService implements IBlogService
 
         return $model;
     }
+
+    /**
+     * @param int $id
+     */
+    public function delete(int $id)
+    {
+        $model = $this->get($id);
+        $model->delete();
+    }
 }

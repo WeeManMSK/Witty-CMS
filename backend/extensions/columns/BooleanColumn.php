@@ -27,7 +27,7 @@ class BooleanColumn extends Column
         if ($this->attribute === null){
             return "Error. Attribute is undefined";
         }
-        return $model[$this->attribute] ? "Да" : "Нет";
+        return $model[$this->attribute] ? "Yes" : "No   ";
     }
 
     /**
