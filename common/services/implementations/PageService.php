@@ -7,6 +7,7 @@ use common\models\Page;
 use common\models\search\PageSearch;
 use common\services\interfaces\IPageService;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveRecord;
 
 class PageService implements IPageService
 {
@@ -24,9 +25,9 @@ class PageService implements IPageService
     }
 
     /**
-     * @return Page
+     * @return ActiveRecord
      */
-    public function createBlank() : Page
+    public function createBlank() : ActiveRecord
     {
         $model = new Page();
         $model->authorId = Yii::$app->user->id;
@@ -36,10 +37,10 @@ class PageService implements IPageService
 
     /**
      * @param int $id
-     * @return Page
+     * @return ActiveRecord
      * @throws yii\web\NotFoundHttpException
      */
-    public function get(int $id): Page
+    public function get(int $id): ActiveRecord
     {
         $model = Page::findOne($id);
 
@@ -60,11 +61,11 @@ class PageService implements IPageService
     }
 
     /**
-     * @param Page $page
+     * @param ActiveRecord $model
      * @return bool
      */
-    public function save(Page $page) : bool
+    public function save(ActiveRecord $model) : bool
     {
-        return $page->save(false);
+        return $model->save(false);
     }
 }
