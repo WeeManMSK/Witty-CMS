@@ -38,10 +38,11 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['title', 'body', 'authorId'], 'required'],
             [['body'], 'string'],
+            [['is_visible', 'isDeleted'], 'boolean'],
             [['authorId', 'modifiedById', 'isDeleted'], 'integer'],
             [['created_At', 'updated_At'], 'safe'],
-            [['title'], 'string', 'max' => 255],
-            [['title'], 'unique'],
+            [['title', 'url'], 'string', 'max' => 255],
+            [['title', 'url'], 'unique'],
             [['authorId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['authorId' => 'id']],
             [['modifiedById'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['modifiedById' => 'id']],
         ];
@@ -55,12 +56,14 @@ class Page extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'url' => 'Url',
             'body' => 'Body',
             'authorId' => 'Author ID',
             'modifiedById' => 'Modified By ID',
             'createdAt' => 'Created At',
             'modifiedAt' => 'Modified At',
             'isDeleted' => 'Is Deleted',
+            'is_visible' => 'Is Visible',
         ];
     }
 
