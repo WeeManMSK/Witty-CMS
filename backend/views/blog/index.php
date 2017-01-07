@@ -1,7 +1,7 @@
 <?php
 /**
  * @var $this \yii\web\View
- * @var $blog_records \yii\data\ActiveDataProvider
+ * @var $rows \yii\data\ActiveDataProvider
  */
 use backend\extensions\columns\ActionColumn;
 use backend\extensions\columns\BooleanColumn;
@@ -22,7 +22,7 @@ $this->title='Blog';
     <div class="box-body">
         <div class="col-md-12">
             <?= GridView::widget([
-                'dataProvider' => $blog_records,
+                'dataProvider' => $rows,
                 'columns' => [
                     'id',
                     'title',

@@ -7,6 +7,7 @@ use common\models\BlogStatus;
 use common\models\search\BlogSearch;
 use common\services\interfaces\IBlogService;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
 class BlogService implements IBlogService
@@ -25,9 +26,9 @@ class BlogService implements IBlogService
     }
 
     /**
-     * @return Blog
+     * @return ActiveRecord
      */
-    public function createBlank() : Blog
+    public function createBlank() : ActiveRecord
     {
         $model = new Blog();
         $model->created_by = \Yii::$app->user->id;
@@ -37,20 +38,20 @@ class BlogService implements IBlogService
     }
 
     /**
-     * @param Blog $blog
+     * @param ActiveRecord $model
      * @return bool
      */
-    public function save(Blog $blog) : bool
+    public function save(ActiveRecord $model) : bool
     {
-        return $blog->save(false);
+        return $model->save(false);
     }
 
     /**
      * @param int $id
-     * @return Blog
+     * @return ActiveRecord
      * @throws NotFoundHttpException
      */
-    public function get(int $id) : Blog
+    public function get(int $id) : ActiveRecord
     {
         $model = Blog::findOne($id);
 

@@ -3,12 +3,12 @@ use backend\helper\FormHelper;
 use mihaildev\elfinder\InputFile;
 /**
  * @var $this \yii\web\View
- * @var $blog \common\models\Blog
+ * @var $model \common\models\Blog
  * @var $form \yii\widgets\ActiveForm
  */
 ?>
 
-<?= $form->field($blog, 'image_url', FormHelper::FormHorizontalFieldOptions)->widget(InputFile::className(), [
+<?= $form->field($model, 'image_url', FormHelper::FormHorizontalFieldOptions)->widget(InputFile::className(), [
     'language'      => 'ru',
     'controller'    => 'elfinder',
     'filter'        => 'image',

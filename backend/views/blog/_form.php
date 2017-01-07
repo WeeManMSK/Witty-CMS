@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \yii\web\View $this
- * @var \common\models\Blog $blog
+ * @var \common\models\Blog $model
  */
 use backend\helper\ErrorHelper;
 use backend\extensions\WtHtml;
@@ -18,7 +18,7 @@ $form = ActiveForm::begin([
 ]);
 ?>
 
-<?= ErrorHelper::showErrors($blog->errors) ?>
+<?= ErrorHelper::showErrors($model->errors) ?>
 
     <div class="box box-default">
     <div class="box-header with-border">
@@ -38,13 +38,13 @@ $form = ActiveForm::begin([
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
-                            <?= $this->render('_basic', ['blog'=>$blog, 'form'=>$form ])?>
+                            <?= $this->render('_basic', ['model'=>$model, 'form'=>$form ])?>
                         </div>
                         <div class="tab-pane" id="tab_2">
-                            <?= $this->render('_advanced', ['blog'=>$blog, 'form'=>$form ])?>
+                            <?= $this->render('_advanced', ['model'=>$model, 'form'=>$form ])?>
                         </div>
                         <div class="tab-pane" id="tab_3">
-                            <?= $this->render('_other', ['blog'=>$blog, 'form'=>$form ])?>
+                            <?= $this->render('_other', ['model'=>$model, 'form'=>$form ])?>
                         </div>
                     </div>
                 </div>

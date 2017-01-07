@@ -7,10 +7,10 @@ $this->title='Add new post';
 
 /**
  * @var \yii\web\View $this
- * @var \common\models\Blog $blog
+ * @var \common\models\Blog $model
  */
 ?>
 
 <?= $this->render('_form',[
-    'blog'=>$blog
+    'model'=>$model
 ]); ?>
