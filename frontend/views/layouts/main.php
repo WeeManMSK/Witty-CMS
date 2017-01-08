@@ -8,6 +8,8 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\widgets\Menu;
+/** @var \frontend\services\interfaces\IMenuItemService $menuService */
+$menuService = Yii::$container->get(\frontend\services\interfaces\IMenuItemService::class);
 
 AppAsset::register($this);
 ?>
@@ -26,7 +28,12 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?= Menu::widget([
-        'items' => \frontend\helper\Menu::Items(),
+        'items' => $menuService->getItems(\common\models\MenuType::HEADER),
+        'encodeLabels' => false,
+        'options'=> [
+            'class'=>'nav navbar-nav navbar-right'
+        ],
+        'submenuTemplate' => "\n<ul class='sub-menu'>\n{items}\n</ul>\n"
     ]);?>
 
     <div class="container">

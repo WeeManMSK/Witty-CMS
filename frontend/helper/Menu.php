@@ -1,7 +1,7 @@
 <?php
 namespace frontend\helper;
 
-use Yii;
+use yii;
 
 class Menu
 {
