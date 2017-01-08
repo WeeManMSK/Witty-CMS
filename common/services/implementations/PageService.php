@@ -57,15 +57,18 @@ class PageService implements IPageService
      */
     public function delete(int $id)
     {
-        Page::deleteAll(['id'=>$id]);
+        Page::updateAll(['isDeleted'=>true],['id'=>$id]);
     }
 
     /**
-     * @param ActiveRecord $model
+     * @param ActiveRecord|Page $model
      * @return bool
      */
     public function save(ActiveRecord $model) : bool
     {
+        if ($model->is_index) {
+            Page::updateAll(['is_index'=>0]);
+        }
         return $model->save(false);
     }
 }

@@ -7,4 +7,6 @@ use backend\helper\FormHelper;
  */
 ?>
 
+<?= $form->field($model, 'is_index',  FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>
 <?= $form->field($model, 'is_visible',  FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>
+<?= $form->field($model, 'isDeleted',  FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>

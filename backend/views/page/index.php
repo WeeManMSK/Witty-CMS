@@ -28,6 +28,10 @@ $this->title='Page';
                     'title',
                     [
                         'class' => BooleanColumn::className(),
+                        'attribute' => 'is_index'
+                    ],
+                    [
+                        'class' => BooleanColumn::className(),
                         'attribute' => 'is_visible'
                     ],
                     'created_at:datetime',

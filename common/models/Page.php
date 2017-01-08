@@ -10,12 +10,15 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property integer $id
  * @property string $title
+ * @property string $url
  * @property string $body
  * @property integer $authorId
  * @property integer $modifiedById
- * @property string $createdAt
- * @property string $modifiedAt
+ * @property string $created_at
+ * @property string $modified_at
  * @property integer $isDeleted
+ * @property integer $is_visible
+ * @property integer $is_index
  *
  * @property User $author
  * @property User $modifiedBy
@@ -38,7 +41,7 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['title', 'body', 'authorId'], 'required'],
             [['body'], 'string'],
-            [['is_visible', 'isDeleted'], 'boolean'],
+            [['is_visible', 'isDeleted', 'is_index'], 'boolean'],
             [['authorId', 'modifiedById', 'isDeleted'], 'integer'],
             [['created_At', 'updated_At'], 'safe'],
             [['title', 'url'], 'string', 'max' => 255],
@@ -64,6 +67,7 @@ class Page extends \yii\db\ActiveRecord
             'modifiedAt' => 'Modified At',
             'isDeleted' => 'Is Deleted',
             'is_visible' => 'Is Visible',
+            'is_index' => 'Is Index Page',
         ];
     }
 
