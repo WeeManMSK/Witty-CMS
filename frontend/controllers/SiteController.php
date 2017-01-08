@@ -10,11 +10,14 @@ class SiteController extends BaseController
 
     /**
      * SiteController constructor.
-     * @param string $layout
+     * @param string $id
+     * @param yii\base\Module $module
+     * @param IPageService $pageService
+     * @param array $config
      */
     public function __construct($id,
-                                $module, 
-                                IPageService $pageService, 
+                                $module,
+                                IPageService $pageService,
                                 $config = []){
         $this->pageService = $pageService;
         parent::__construct($id, $module, $config);

@@ -22,4 +22,20 @@ class PageService extends \common\services\implementations\PageService implement
 
         return $page;
     }
+
+    /**
+     * @param string $url
+     * @return Page
+     * @throws NotFoundHttpException
+     */
+    public function getPage(string $url): Page
+    {
+        $page = Page::findOne(['url'=>$url]);
+
+        if ($page === null){
+            throw new NotFoundHttpException();
+        }
+
+        return $page;
+    }
 }
