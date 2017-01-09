@@ -1,9 +1,9 @@
 <?php
 namespace common\models;
 
-use common\behavior\WtTimestampBehavior;
-use Yii;
+use yii;
 use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -17,8 +17,8 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $authKey
  * @property integer $status
- * @property integer $createdAt
- * @property integer $updatedAt
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property integer $roleId
  * @property string $password write-only password
  */
@@ -42,7 +42,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            WtTimestampBehavior::className(),
+            TimestampBehavior::className(),
         ];
     }
 
