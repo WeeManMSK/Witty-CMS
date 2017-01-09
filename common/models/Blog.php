@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id
  * @property string $title
  * @property string $content
+ * @property string $url
  * @property integer $created_by
  * @property integer $status_id
  * @property string $created_at
@@ -39,6 +40,7 @@ class Blog extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['created_by', 'status_id'], 'integer'],
             [['is_visible'], 'boolean'],
+            [['url'], 'unique'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['image_url'], 'string', 'max' => 1000],
