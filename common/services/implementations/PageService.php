@@ -66,6 +66,12 @@ class PageService implements IPageService
      */
     public function save(ActiveRecord $model) : bool
     {
+        if (!$model->validate()) return false;
+        if ($model->isNewRecord){
+            $model->authorId = Yii::$app->user->id;
+        } else {
+            $model->modifiedById = Yii::$app->user->id;
+        }
         if ($model->is_index) {
             Page::updateAll(['is_index'=>0]);
         }
