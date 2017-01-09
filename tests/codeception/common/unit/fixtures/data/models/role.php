@@ -1,12 +1,12 @@
 <?php
 
 return [
-  [
-      'id'=>1,
-      'name'=>'Guest',
-      'isDeleted'=>0,
-      'isActive'=>0
-  ],
+    [
+        'id'=>1,
+        'name'=>'Guest',
+        'isDeleted'=>0,
+        'isActive'=>0
+    ],
     [
         'id'=>2,
         'name'=>'User',

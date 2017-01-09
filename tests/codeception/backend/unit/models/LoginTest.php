@@ -2,7 +2,6 @@
 namespace tests\codeception\backend\models;
 
 use common\models\Role;
-use tests\codeception\backend\unit\DbTestCase;
 use tests\codeception\backend\unit\TestCase;
 use tests\codeception\common\fixtures\RoleFixture;
 use tests\codeception\common\fixtures\UserFixture;
@@ -124,7 +123,7 @@ class LoginTest extends TestCase
         return [
             'role' => [
                 'class' => RoleFixture::className(),
-                'dataFile' => '@tests/codeception/backend/unit/fixtures/data/models/role.php'
+                'dataFile' => '@tests/codeception/common/unit/fixtures/data/models/role.php'
             ],
             'user' => [
                 'class' => UserFixture::className(),
