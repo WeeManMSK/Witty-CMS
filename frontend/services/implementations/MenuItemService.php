@@ -42,7 +42,7 @@ class MenuItemService extends \common\services\implementations\MenuItemService i
     private function createMenuItem(MenuItem $menu): array{
         return [
             'label' => $menu->title,
-//            'url' => ['/'.$menu->page->url], TODO: Add link to page
+            'url' => $menu->page !== null ? ['/'.$menu->page->url] : null,
             'items' => $this->getChildren($menu)
         ];
     }

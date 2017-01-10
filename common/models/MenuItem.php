@@ -14,10 +14,12 @@ use yii;
  * @property integer $parent_id
  * @property integer $is_visible
  * @property integer $item_order
+ * @property integer $page_id
  *
  * @property Menu $menu
  * @property MenuItem $parent
  * @property MenuItem[] $menuItems
+ * @property Page $page
  */
 class MenuItem extends \yii\db\ActiveRecord
 {
@@ -36,7 +38,7 @@ class MenuItem extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'menu_id'], 'required'],
-            [['menu_id', 'parent_id', 'is_visible', 'item_order'], 'integer'],
+            [['menu_id', 'parent_id', 'is_visible', 'item_order', 'page_id'], 'integer'],
             [['title', 'subtitle'], 'string', 'max' => 100],
             [['menu_id'], 'exist', 'skipOnError' => true, 'targetClass' => Menu::className(), 'targetAttribute' => ['menu_id' => 'id']],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => MenuItem::className(), 'targetAttribute' => ['parent_id' => 'id']],
@@ -56,6 +58,7 @@ class MenuItem extends \yii\db\ActiveRecord
             'parent_id' => 'Parent ID',
             'is_visible' => 'Is Visible',
             'item_order' => 'Item Order',
+            'page_id' => 'Page',
         ];
     }
 
@@ -81,5 +84,13 @@ class MenuItem extends \yii\db\ActiveRecord
     public function getChildren()
     {
         return $this->hasMany(MenuItem::className(), ['parent_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPage()
+    {
+        return $this->hasOne(Page::className(), ['id' => 'page_id']);
     }
 }
