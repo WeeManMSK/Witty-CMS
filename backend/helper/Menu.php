@@ -11,6 +11,7 @@ class Menu
                 ['label' => '<i class="fa fa-circle-o"></i>Pages', 'url' => ['/page']],
                 ['label' => '<i class="fa fa-circle-o"></i>Blog', 'url' => ['/blog']],
             ]],
+            ['label' => '<i class="fa fa-cog"></i><span>Settings</span>', 'url' => ['/settings'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => '<i class="fa fa-sign-out"></i><span>Sign out</span>', 'url' => ['/site/logout'], 'visible' => !Yii::$app->user->isGuest],
         ];
     }
