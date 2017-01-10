@@ -6,5 +6,7 @@
  */
 
 $this->title = $page->title;
+
+$this->theme->init();
 ?>
 <?= $page->body ?>

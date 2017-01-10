@@ -43,6 +43,9 @@ return [
                 '<url:\w+>' => 'page/view'
             ],
         ],
+        'view' => [
+            'theme' => (new \frontend\services\implementations\ThemeService())->get(),
+        ],
     ],
     'params' => $params,
 ];
