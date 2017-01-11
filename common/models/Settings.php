@@ -10,6 +10,9 @@ use yii;
  * @property integer $id
  * @property string $version
  * @property integer $is_offline
+ * @property integer $theme_id
+ * 
+ * @property Theme theme
  */
 class Settings extends \yii\db\ActiveRecord
 {
@@ -42,6 +45,14 @@ class Settings extends \yii\db\ActiveRecord
             'id' => 'ID',
             'version' => 'Version',
             'is_offline' => 'Is Offline',
+            'theme_id' => 'Theme',
         ];
+    }
+
+    /**
+     * @return yii\db\ActiveQuery
+     */
+    public function getTheme(){
+        return $this->hasOne(Theme::className(), ['id'=>'theme_id']);
     }
 }
