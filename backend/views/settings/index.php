@@ -1,5 +1,6 @@
 <?php
-use yii\widgets\DetailView;
+use backend\widgets\DetailViewRowEditor\DropdownWidget;
+use backend\widgets\EditableDetailView;
 /**
  * @var $this \yii\web\View
  * @var $model \common\models\Settings
@@ -15,11 +16,24 @@ $this->title='Settings';
     </div>
     <div class="box-body">
         <div class="col-md-12">
-            <?= DetailView::widget([
+            <?= EditableDetailView::widget([
                 'model'=>$model,
                 'attributes'=> [
                     'version',
-                    'is_offline'
+                    'is_offline',
+                    [
+                        'format' => 'raw',
+                        'attribute' => 'theme_id',
+                        'value' => DropdownWidget::widget([
+                            'model' => $model,
+                            'attribute' => 'theme',
+                            'listOptions' => [
+                                'key' => 'id',
+                                'value' => 'name',
+                            ],
+                            'value' => $model->theme_id
+                        ])
+                    ]
                 ]
             ]) ?>
         </div>
