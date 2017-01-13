@@ -1,19 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ternoant
- * Date: 09.01.2017
- * Time: 23:10
- */
 
 namespace frontend\services\implementations;
 
+use common\services\interfaces\ISettingsService;
+use frontend\services\interfaces\IThemeService;
 use yii;
 
-class ThemeService
+class ThemeService extends \common\services\implementations\ThemeService implements IThemeService
 {
-    public function get(){
-        $theme = 'default';
+    private $settingsService;
+
+    /**
+     * ThemeService constructor.
+     * @param ISettingsService $settingsService
+     */
+    public function __construct(ISettingsService $settingsService)
+    {
+        $this->settingsService = $settingsService;
+    }
+
+    /**
+     * @return array
+     */
+    public function get() : array{
+        $theme = $this->settingsService->get()->theme->code;
 
         Yii::setAlias('@theme', '@frontend/themes/'.$theme);
         return [

@@ -1,6 +1,6 @@
 <?php
 use backend\widgets\DetailViewRowEditor\DropdownWidget;
-use backend\widgets\EditableDetailView;
+use backend\widgets\EditableDetailView\EditableDetailView;
 /**
  * @var $this \yii\web\View
  * @var $model \common\models\Settings
@@ -10,6 +10,7 @@ $this->params['breadcrumbs'][] = 'Settings';
 $this->title='Settings';
 ?>
 
+<?=\common\widgets\Alert::widget();?>
 <div class="box box-primary direct-chat direct-chat-primary">
     <div class="box-header with-border">
         <h3 class="box-title">Main settings</h3>

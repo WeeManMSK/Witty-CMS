@@ -31,7 +31,7 @@ class Settings extends \yii\db\ActiveRecord
     {
         return [
             [['version'], 'required'],
-            [['is_offline'], 'integer'],
+            [['is_offline', 'theme_id'], 'integer'],
             [['version'], 'string', 'max' => 255],
         ];
     }
