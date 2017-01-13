@@ -36,6 +36,7 @@ class Theme extends \yii\db\ActiveRecord
             [['code', 'name', 'author'], 'string', 'max' => 100],
             [['version'], 'string', 'max' => 20],
             [['url'], 'string', 'max' => 255],
+            [['code'], 'unique'],
         ];
     }
 
