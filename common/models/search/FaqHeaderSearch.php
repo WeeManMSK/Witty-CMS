@@ -22,7 +22,7 @@ class FaqHeaderSearch extends FaqHeader
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'updated_at' => SORT_DESC,
+                    'id' => SORT_DESC,
                 ]
             ],
         ]);

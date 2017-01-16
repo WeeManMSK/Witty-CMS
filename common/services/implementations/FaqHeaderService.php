@@ -42,7 +42,7 @@ class FaqHeaderService implements IFaqHeaderService
      */
     public function get(int $id): ActiveRecord
     {
-        $model = $this->get($id);
+        $model = FaqHeader::findOne($id);
 
         if ($model=== null){
             throw new NotFoundHttpException();
@@ -69,5 +69,16 @@ class FaqHeaderService implements IFaqHeaderService
     public function save(ActiveRecord $model) : bool
     {
         return $model->save();
+    }
+
+    /**
+     * @return ActiveRecord
+     */
+    public function createBlankWithFaq(int $faq_id) : ActiveRecord
+    {
+        $model = $this->createBlank();
+        $model->faq_id = $faq_id;
+
+        return $model;
     }
 }

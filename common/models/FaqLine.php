@@ -3,6 +3,7 @@
 namespace common\models;
 
 use yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%faq_line}}".
@@ -14,7 +15,8 @@ use yii;
  * @property integer $is_deleted
  * @property integer $order
  *
- * @property FaqHeader $faqHeader
+ * @property FaqHeader $header
+ * @property array $faqHeaderList
  */
 class FaqLine extends \yii\db\ActiveRecord
 {
@@ -46,7 +48,7 @@ class FaqLine extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'faq_header_id' => 'Faq Header ID',
+            'faq_header_id' => 'Faq section',
             'question' => 'Question',
             'answer' => 'Answer',
             'is_deleted' => 'Is Deleted',
@@ -57,8 +59,15 @@ class FaqLine extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFaqHeader()
+    public function getHeader()
     {
         return $this->hasOne(FaqHeader::className(), ['id' => 'faq_header_id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFaqHeaderList(){
+        return ArrayHelper::map(FaqHeader::find()->all(), 'id', 'name');
     }
 }

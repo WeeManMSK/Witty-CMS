@@ -22,7 +22,7 @@ class FaqSearch extends Faq
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'updated_at' => SORT_DESC,
+                    'id' => SORT_DESC,
                 ]
             ],
         ]);

@@ -5,12 +5,12 @@ namespace common\services\implementations;
 
 use common\models\FaqLine;
 use common\models\search\FaqLineSearch;
-use common\services\interfaces\IFaqLineInterface;
+use common\services\interfaces\IFaqLineService;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
-class FaqLineService implements IFaqLineInterface
+class FaqLineService implements IFaqLineService
 {
 
     /**
@@ -31,6 +31,7 @@ class FaqLineService implements IFaqLineInterface
     public function createBlank() : ActiveRecord
     {
         $model = new FaqLine();
+        $model->order = 1000;
 
         return $model;
     }
@@ -70,5 +71,13 @@ class FaqLineService implements IFaqLineInterface
     public function save(ActiveRecord $model) : bool
     {
         return $model->save(false);
+    }
+
+    public function createBlankWithFaq(int $faq_header_id) : FaqLine
+    {
+        $model = $this->createBlank();
+        $model->faq_header_id = $faq_header_id;
+
+        return $model;
     }
 }

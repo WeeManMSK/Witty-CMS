@@ -3,6 +3,7 @@
 namespace common\models;
 
 use yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%faq_header}}".
@@ -14,6 +15,7 @@ use yii;
  *
  * @property Faq $faq
  * @property FaqLine[] $lines
+ * @property array $faqList
  */
 class FaqHeader extends \yii\db\ActiveRecord
 {
@@ -46,7 +48,7 @@ class FaqHeader extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'faq_id' => 'Faq ID',
+            'faq_id' => 'Faq',
             'order' => 'Order',
         ];
     }
@@ -65,5 +67,12 @@ class FaqHeader extends \yii\db\ActiveRecord
     public function getLines()
     {
         return $this->hasMany(FaqLine::className(), ['faq_header_id' => 'id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFaqList(){
+        return ArrayHelper::map(Faq::find()->all(), 'id', 'name');
     }
 }
