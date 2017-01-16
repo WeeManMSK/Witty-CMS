@@ -5,7 +5,8 @@ namespace backend\controllers;
 use yii;
 use common\services\interfaces\IReferenceService;
 
-class ReferenceController extends BaseController
+class
+ReferenceController extends BaseController
 {
     private $referenceService;
 
