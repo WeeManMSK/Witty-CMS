@@ -8,13 +8,13 @@ use backend\extensions\columns\BooleanColumn;
 use backend\extensions\WtHtml;
 use yii\grid\GridView;
 
-$this->params['breadcrumbs'][] = 'Blog';
-$this->title='Blog';
+$this->params['breadcrumbs'][] = 'Item types';
+$this->title='Item types';
 ?>
 
 <div class="box box-primary direct-chat direct-chat-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Blog records</h3>
+        <h3 class="box-title">Item types</h3>
         <div class="box-tools pull-right">
             <?= WtHtml::aAsButton('Add', ['create'], ['iconClass'=>'fa fa-plus'] )?>
         </div>
@@ -25,13 +25,11 @@ $this->title='Blog';
                 'dataProvider' => $rows,
                 'columns' => [
                     'id',
-                    'title',
+                    'name',
                     [
                         'class' => BooleanColumn::className(),
-                        'attribute' => 'is_visible'
+                        'attribute' => 'is_deleted'
                     ],
-                    'created_at:datetime',
-                    'updated_at:datetime',
                     [
                         'class' => ActionColumn::className(),
                         'template' => '{update} {delete}'

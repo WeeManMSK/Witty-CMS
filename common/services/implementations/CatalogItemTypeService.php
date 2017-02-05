@@ -2,15 +2,14 @@
 
 namespace common\services\implementations;
 
-use common\models\Blog;
-use common\models\BlogStatus;
-use common\models\search\BlogSearch;
-use common\services\interfaces\IBlogService;
+use common\models\CatalogItemType;
+use common\models\search\CatalogItemTypeSearch;
+use common\services\interfaces\ICatalogItemTypeService;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
-class BlogService implements IBlogService
+class CatalogItemTypeService implements ICatalogItemTypeService
 {
 
     /**
@@ -19,7 +18,7 @@ class BlogService implements IBlogService
      */
     public function search(array $params) : ActiveDataProvider
     {
-        $searchModel = new BlogSearch();
+        $searchModel = new CatalogItemTypeSearch();
         $dataProvider = $searchModel->search($params);
 
         return $dataProvider;
@@ -30,9 +29,7 @@ class BlogService implements IBlogService
      */
     public function createBlank() : ActiveRecord
     {
-        $model = new Blog();
-        $model->created_by = \Yii::$app->user->id;
-        $model->status_id = BlogStatus::findOne(['code'=>BlogStatus::DRAFT])->id;
+        $model = new CatalogItemType();
 
         return $model;
     }
@@ -53,7 +50,7 @@ class BlogService implements IBlogService
      */
     public function get(int $id) : ActiveRecord
     {
-        $model = Blog::findOne($id);
+        $model = CatalogItemType::findOne($id);
 
         if ($model === null) {
             throw new NotFoundHttpException();
