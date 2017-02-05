@@ -5,10 +5,7 @@
  */
 use backend\helper\ErrorHelper;
 use backend\extensions\WtHtml;
-use backend\helper\FormHelper;
 use yii\widgets\ActiveForm;
-use mihaildev\ckeditor\CKEditor;
-use mihaildev\elfinder\ElFinder;
 
 ?>
 
@@ -33,22 +30,25 @@ $form = ActiveForm::begin([
     <div class="box-body">
         <div class="row">
             <div class="col-md-12">
-                <?= $form->field($model, 'name', \backend\helper\FormHelper::FormHorizontalFieldOptions)->textInput() ?>
-                <?= $form->field($model, 'type_id', \backend\helper\FormHelper::FormHorizontalFieldOptions)->dropDownList($model->typeDropdownList) ?>
-                <?= $form->field($model, 'description', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
-                    'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-                            'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                            'inline' => false, //по умолчанию false,
-                        ]
-                    )]) ?>
-                <?= $form->field($model, 'description_full', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
-                    'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-                            'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                            'inline' => false, //по умолчанию false,
-                        ]
-                    )]) ?>
-                <?= $form->field($model, 'is_deleted', \backend\helper\FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>
-            </div>
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Basic data</a></li>
+                        <li><a href="#tab_2" data-toggle="tab">Attributes</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">Images</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <?= $this->render('_basic', ['model'=>$model, 'form'=>$form ])?>
+                        </div>
+                        <div class="tab-pane" id="tab_2">
+                            <?= $this->render('_attributes', ['model'=>$model, 'form'=>$form ])?>
+                        </div>
+                        <div class="tab-pane" id="tab_3">
+                            <?= $this->render('_images', ['model'=>$model, 'form'=>$form ])?>
+                        </div>
+                    </div>
+                </div>
+               </div>
         </div>
         <div class="box-footer">
             <div class="row">
