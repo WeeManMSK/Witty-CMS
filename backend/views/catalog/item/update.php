@@ -1,13 +1,13 @@
 <?php
 $this->params['breadcrumbs'][] = [
-    'label'=>"Item type",
+    'label'=>"Item",
     'url'=> ['index']];
-$this->params['breadcrumbs'][] = 'Add';
-$this->title='Add new type';
+$this->params['breadcrumbs'][] = 'Update';
+$this->title='Update item';
 
 /**
  * @var \yii\web\View $this
- * @var \common\models\CatalogItemType $model
+ * @var \common\models\CatalogItem $model
  */
 ?>
 

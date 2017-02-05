@@ -7,7 +7,7 @@ $this->title='Update type';
 
 /**
  * @var \yii\web\View $this
- * @var \common\models\Blog $model
+ * @var \common\models\CatalogItemType $model
  */
 ?>
 

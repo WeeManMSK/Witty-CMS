@@ -15,3 +15,4 @@ Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 \Yii::$container->set('common\services\interfaces\IFaqHeaderService', 'common\services\implementations\FaqHeaderService');
 \Yii::$container->set('common\services\interfaces\IFaqLineService', 'common\services\implementations\FaqLineService');
 \Yii::$container->set('common\services\interfaces\ICatalogItemTypeService', 'common\services\implementations\CatalogItemTypeService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemService', 'common\services\implementations\CatalogItemService');
