@@ -13,6 +13,7 @@ use Yii;
  * @property string $description_full
  * @property int $type_id
  * @property int $is_deleted
+ * @property array $typeDropdownList
  *
  * @property CatalogItemType $type
  */
@@ -61,5 +62,13 @@ class CatalogItem extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(CatalogItemType::className(), ['id' => 'type_id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getTypeDropdownList(){
+        $a = new CatalogItemType();
+        return $a->dropdownList;
     }
 }

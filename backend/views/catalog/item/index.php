@@ -27,13 +27,12 @@ $this->title = 'Items';
                     'id',
                     'name',
                     [
-                        'class' => \yii\grid\DataColumn::class,
                         'attribute' => 'type_id',
                         'value' => function ($model) {
-                            return $model->typeId;
+                            return $model->type->name;
                         }
                     ],
-                    'description',
+                    'description:html',
                     [
                         'class' => BooleanColumn::className(),
                         'attribute' => 'is_deleted'

@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \yii\web\View $this
- * @var \common\models\CatalogItemType $model
+ * @var \common\models\CatalogItem $model
  */
 use backend\helper\ErrorHelper;
 use backend\extensions\WtHtml;
@@ -34,7 +34,7 @@ $form = ActiveForm::begin([
         <div class="row">
             <div class="col-md-12">
                 <?= $form->field($model, 'name', \backend\helper\FormHelper::FormHorizontalFieldOptions)->textInput() ?>
-                <?= $form->field($model, 'type_id', \backend\helper\FormHelper::FormHorizontalFieldOptions)->textInput() ?>
+                <?= $form->field($model, 'type_id', \backend\helper\FormHelper::FormHorizontalFieldOptions)->dropDownList($model->typeDropdownList) ?>
                 <?= $form->field($model, 'description', FormHelper::FormHorizontalFieldOptions)->widget(CKEditor::className(),[
                     'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
                             'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать

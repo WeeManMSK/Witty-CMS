@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%catalog_item_type}}".
@@ -10,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $is_deleted
+ * @property array $dropdownList
  *
  * @property CatalogItem[] $catalogItems
  */
@@ -53,5 +55,12 @@ class CatalogItemType extends \yii\db\ActiveRecord
     public function getCatalogItems()
     {
         return $this->hasMany(CatalogItem::className(), ['type_id' => 'id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getDropdownList(){
+        return ArrayHelper::map($this::find()->where(['is_deleted'=>0])->all(), 'id', 'name');
     }
 }
