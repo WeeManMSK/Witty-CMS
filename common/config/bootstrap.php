@@ -16,3 +16,6 @@ Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 \Yii::$container->set('common\services\interfaces\IFaqLineService', 'common\services\implementations\FaqLineService');
 \Yii::$container->set('common\services\interfaces\ICatalogItemTypeService', 'common\services\implementations\CatalogItemTypeService');
 \Yii::$container->set('common\services\interfaces\ICatalogItemService', 'common\services\implementations\CatalogItemService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemAttributeService', 'common\services\implementations\CatalogItemAttributeService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemAttributeTypeService', 'common\services\implementations\CatalogItemAttributeTypeService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemAttributeGroupService', 'common\services\implementations\CatalogItemAttributeGroupService');

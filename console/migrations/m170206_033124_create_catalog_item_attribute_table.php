@@ -19,8 +19,8 @@ class m170206_033124_create_catalog_item_attribute_table extends Migration
         $this->createTable('{{%catalog_item_attribute}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull(),
-            'group' => $this->integer()->notNull(),
-            'type' => $this->integer()->notNull(),
+            'group_id' => $this->integer()->notNull(),
+            'type_id' => $this->integer()->notNull(),
             'order' => $this->integer()->notNull()->defaultValue(0),
         ]);
 
@@ -28,14 +28,14 @@ class m170206_033124_create_catalog_item_attribute_table extends Migration
         $this->createIndex(
             '{{%idx-catalog_item_attribute-group}}',
             '{{%catalog_item_attribute}}',
-            'group'
+            'group_id'
         );
 
         // add foreign key for table `{{%catalog_item_attribute_group}}`
         $this->addForeignKey(
             '{{%fk-catalog_item_attribute-group}}',
             '{{%catalog_item_attribute}}',
-            'group',
+            'group_id',
             '{{%catalog_item_attribute_group}}',
             'id',
             'CASCADE'
@@ -45,14 +45,14 @@ class m170206_033124_create_catalog_item_attribute_table extends Migration
         $this->createIndex(
             '{{%idx-catalog_item_attribute-type}}',
             '{{%catalog_item_attribute}}',
-            'type'
+            'type_id'
         );
 
         // add foreign key for table `{{%catalog_item_attribute_type}}`
         $this->addForeignKey(
             '{{%fk-catalog_item_attribute-type}}',
             '{{%catalog_item_attribute}}',
-            'type',
+            'type_id',
             '{{%catalog_item_attribute_type}}',
             'id',
             'CASCADE'

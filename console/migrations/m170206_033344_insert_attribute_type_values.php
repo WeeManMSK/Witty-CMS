@@ -22,8 +22,6 @@ class m170206_033344_insert_attribute_type_values extends Migration
         $this->delete('{{%catalog_item_attribute_type}}', [
             'name'=>'Boolean'
         ]);
-
-        return false;
     }
 
     /*
