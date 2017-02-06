@@ -15,7 +15,10 @@ class Menu
             ]],
             ['label' => '<i class="fa fa-shopping-basket"></i><span>Shop</span>', 'url' => ['/shop'], 'items' => [
                 ['label' => '<i class="fa fa-circle-o"></i><span>Item types</span>', 'url' => ['catalog/type']],
-                ['label' => '<i class="fa fa-circle-o"></i><span>Items</span>', 'url' => ['catalog/item']]
+                ['label' => '<i class="fa fa-circle-o"></i><span>Items</span>', 'url' => ['catalog/item']],
+                ['label' => '<i class="fa fa-circle-o"></i><span>Attributes</span>', 'url' => ['catalog/attribute']],
+                ['label' => '<i class="fa fa-circle-o"></i><span>Attribute groups</span>', 'url' => ['catalog/attribute-group']],
+                ['label' => '<i class="fa fa-circle-o"></i><span>Attribute types</span>', 'url' => ['catalog/attribute-type']],
             ]],
             ['label' => '<i class="fa fa-cog"></i><span>Settings</span>', 'url' => ['/settings'], 'visible' => !yii::$app->user->isGuest],
             ['label' => '<i class="fa fa-sign-out"></i><span>Sign out</span>', 'url' => ['/site/logout'], 'visible' => !yii::$app->user->isGuest],
