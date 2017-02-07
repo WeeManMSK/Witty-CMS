@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%catalog_item_attribute_group}}".
@@ -10,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $order
+ * @property array $dropdownList
  *
  * @property CatalogItemAttribute[] $catalogItemAttributes
  */
@@ -53,5 +55,12 @@ class CatalogItemAttributeGroup extends \yii\db\ActiveRecord
     public function getCatalogItemAttributes()
     {
         return $this->hasMany(CatalogItemAttribute::className(), ['group_id' => 'id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getDropdownList(){
+        return ArrayHelper::map($this::find()->all(), 'id', 'name');
     }
 }

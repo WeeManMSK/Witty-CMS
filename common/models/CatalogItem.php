@@ -68,7 +68,7 @@ class CatalogItem extends \yii\db\ActiveRecord
      * @return array
      */
     public function getTypeDropdownList(){
-        $a = new CatalogItemType();
-        return $a->dropdownList;
+        $model = new CatalogItemType();
+        return $model->dropdownList;
     }
 }

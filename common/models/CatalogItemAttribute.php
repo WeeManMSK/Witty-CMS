@@ -12,6 +12,8 @@ use Yii;
  * @property int $group_id
  * @property int $type_id
  * @property int $order
+ * @property array $typeDropdownList
+ * @property array $groupDropdownList
  *
  * @property CatalogItemAttributeGroup $group
  * @property CatalogItemAttributeType $type
@@ -32,7 +34,7 @@ class CatalogItemAttribute extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'group_id', 'type_id'], 'required'],
+            [['name', 'group_id', 'type_id', 'order'], 'required'],
             [['group_id', 'type_id', 'order'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => CatalogItemAttributeGroup::className(), 'targetAttribute' => ['group_id' => 'id']],
@@ -68,5 +70,21 @@ class CatalogItemAttribute extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(CatalogItemAttributeType::className(), ['id' => 'type_id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getTypeDropdownList(){
+        $model = new CatalogItemAttributeType();
+        return $model->dropdownList;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroupDropdownList(){
+        $model = new CatalogItemAttributeGroup();
+        return $model->dropdownList;
     }
 }

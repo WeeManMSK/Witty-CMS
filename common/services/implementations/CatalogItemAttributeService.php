@@ -30,7 +30,7 @@ class CatalogItemAttributeService implements ICatalogItemAttributeService
     public function createBlank() : ActiveRecord
     {
         $model = new CatalogItemAttribute();
-
+        $model->order = 1000;
         return $model;
     }
 
