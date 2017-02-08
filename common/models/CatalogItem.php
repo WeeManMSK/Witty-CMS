@@ -16,6 +16,7 @@ use Yii;
  * @property array $typeDropdownList
  *
  * @property CatalogItemType $type
+ * @property ItemAttributeMapping[] $attributeMapping
  */
 class CatalogItem extends \yii\db\ActiveRecord
 {
@@ -62,6 +63,13 @@ class CatalogItem extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(CatalogItemType::className(), ['id' => 'type_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAttributeMapping(){
+        return $this->hasMany(ItemAttributeMapping::className(), ['item_id' => 'id']);
     }
 
     /**

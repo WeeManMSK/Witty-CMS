@@ -17,6 +17,7 @@ use Yii;
  *
  * @property CatalogItemAttributeGroup $group
  * @property CatalogItemAttributeType $type
+ * @property ItemAttributeMapping[] $attributeMapping
  */
 class CatalogItemAttribute extends \yii\db\ActiveRecord
 {
@@ -70,6 +71,13 @@ class CatalogItemAttribute extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(CatalogItemAttributeType::className(), ['id' => 'type_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAttributeMapping(){
+        return $this->hasMany(ItemAttributeMapping::className(), ['attribute_id' => 'id']);
     }
 
     /**
