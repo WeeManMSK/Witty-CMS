@@ -17,6 +17,7 @@ use Yii;
  *
  * @property CatalogItemType $type
  * @property ItemAttributeMapping[] $attributeMapping
+ * @property CatalogItemAttribute[] $possibleAttributes
  */
 class CatalogItem extends \yii\db\ActiveRecord
 {
@@ -78,5 +79,12 @@ class CatalogItem extends \yii\db\ActiveRecord
     public function getTypeDropdownList(){
         $model = new CatalogItemType();
         return $model->dropdownList;
+    }
+
+    /**
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public function getPossibleAttributes(){
+        return CatalogItemAttribute::find()->all();
     }
 }

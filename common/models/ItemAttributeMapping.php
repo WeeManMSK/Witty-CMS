@@ -13,7 +13,7 @@ use Yii;
  * @property string $value_text
  * @property int $value_boolean
  *
- * @property CatalogItemAttribute $attribute0
+ * @property CatalogItemAttribute $itemAttribute
  * @property CatalogItem $item
  */
 class ItemAttributeMapping extends \yii\db\ActiveRecord
@@ -57,7 +57,7 @@ class ItemAttributeMapping extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAttribute0()
+    public function getItemAttribute()
     {
         return $this->hasOne(CatalogItemAttribute::className(), ['id' => 'attribute_id']);
     }
