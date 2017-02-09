@@ -3,6 +3,8 @@
 namespace common\services\implementations;
 
 use common\models\CatalogItem;
+use common\models\CatalogItemAttribute;
+use common\models\ItemAttributeMapping;
 use common\models\search\CatalogItemSearch;
 use common\services\interfaces\ICatalogItemService;
 use yii\data\ActiveDataProvider;
@@ -67,5 +69,23 @@ class CatalogItemService implements ICatalogItemService
     {
         $model = $this->get($id);
         $model->delete();
+    }
+
+    public function updateAttributeValues(array $attributesPost, int $id)
+    {
+        $exist_mappings = ItemAttributeMapping::find()
+            ->where(['attribute_id'=>$attributesPost])
+            ->andWhere(['item_id'=>$id])
+            ->all();
+
+//        var_dump(count($exist_mappings));
+
+        foreach ($attributesPost as $attributeId=>$value){
+            if ($value === "") continue;
+            $attributeMapping = new ItemAttributeMapping();
+            $attributeMapping->attribute_id = $attributeId;
+            $attributeType = CatalogItemAttribute::findOne($attributeId)->type_id;
+            var_dump($value);
+        }
     }
 }

@@ -16,4 +16,15 @@ class ItemController extends ReferenceController
         $this->catalogItemService = $catalogItemService;
         parent::__construct($id, $module, $catalogItemService, $config);
     }
+
+    public function actionUpdate($id)
+    {
+        $attributesForSave = \Yii::$app->request->post('Attribute');
+        $this->catalogItemService->updateAttributeValues($attributesForSave, $id);
+
+        return;
+        return parent::actionUpdate($id);
+    }
+
+
 }

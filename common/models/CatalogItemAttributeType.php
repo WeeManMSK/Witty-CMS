@@ -16,6 +16,8 @@ use yii\helpers\ArrayHelper;
  */
 class CatalogItemAttributeType extends \yii\db\ActiveRecord
 {
+    const ATTRIBUTE_TEXT = 1;
+    const ATTRIBUTE_BOOLEAN = 2;
     /**
      * @inheritdoc
      */

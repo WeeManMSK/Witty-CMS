@@ -9,12 +9,18 @@ use backend\extensions\WtHtml;
 ?>
 <?php foreach ($model->possibleAttributes as $attr){?>
     <div class="form-group">
-        <label for="" class="col-sm-2 control-label">
+        <label for="<?=$attr->id ?>" class="col-sm-2 control-label">
             <?= $attr->name ?>
         </label>
         <div class="col-sm-10">
-            <?php // TODO Add check for boolean and render checkbox?>
-            <?= WtHtml::input($attr->type->name, null, null, ['class'=>'form-control'])?>
+            <?php
+            switch ($attr->type_id) {
+                case \common\models\CatalogItemAttributeType::ATTRIBUTE_BOOLEAN:
+                    echo WtHtml::checkbox('Attribute['.$attr->id.']', null);
+                    break;
+                default:
+                    echo WtHtml::input($attr->type->name, 'Attribute['.$attr->id.']', null, ['class'=>'form-control', 'id'=>$attr->id]);
+            }?>
         </div>
         <div class="col-sm-10 col-sm-offset-2"><div class="help-block"></div></div>
     </div>
