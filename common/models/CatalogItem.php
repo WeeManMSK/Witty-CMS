@@ -87,4 +87,32 @@ class CatalogItem extends \yii\db\ActiveRecord
     public function getPossibleAttributes(){
         return CatalogItemAttribute::find()->all();
     }
+
+    /**
+     * @param CatalogItemAttribute $attr
+     */
+    public function getAttributeValue(CatalogItemAttribute $attr)
+    {
+        /** @var CatalogItemAttribute $attr */
+        $a = array_filter($this->attributeMapping, function($e) use ($attr){
+           return $e->attribute_id == $attr->id;
+        });
+
+        if (count($a) < 1) {
+            return null;
+        }
+
+        /** @var ItemAttributeMapping $attributeMapping */
+        $attributeMapping = array_values($a)[0];
+        switch ($attr->type_id) {
+            case \common\models\CatalogItemAttributeType::ATTRIBUTE_TEXT:
+                return  $attributeMapping->value_text;
+                break;
+            case \common\models\CatalogItemAttributeType::ATTRIBUTE_BOOLEAN:
+                return  $attributeMapping->value_boolean;
+                break;
+            default:
+                return null;
+        }
+    }
 }
