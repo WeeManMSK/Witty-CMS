@@ -20,9 +20,9 @@ class ItemController extends ReferenceController
     public function actionUpdate($id)
     {
         $attributesForSave = \Yii::$app->request->post('Attribute');
-        $this->catalogItemService->updateAttributeValues($attributesForSave, $id);
-
-        return;
+        if (count($attributesForSave)>0) {
+            $this->catalogItemService->updateAttributeValues($attributesForSave, $id);
+        }
         return parent::actionUpdate($id);
     }
 
