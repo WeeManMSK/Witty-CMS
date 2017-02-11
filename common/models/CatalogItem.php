@@ -17,6 +17,7 @@ use Yii;
  *
  * @property CatalogItemType $type
  * @property ItemAttributeMapping[] $attributeMapping
+ * @property CatalogItemImage[] $images
  * @property CatalogItemAttribute[] $possibleAttributes
  */
 class CatalogItem extends \yii\db\ActiveRecord
@@ -71,6 +72,13 @@ class CatalogItem extends \yii\db\ActiveRecord
      */
     public function getAttributeMapping(){
         return $this->hasMany(ItemAttributeMapping::className(), ['item_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getImages(){
+        return $this->hasMany(CatalogItemImage::className(), ['item_id' => 'id']);
     }
 
     /**
