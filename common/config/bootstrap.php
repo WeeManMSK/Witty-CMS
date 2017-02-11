@@ -4,6 +4,10 @@ Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 
+$http = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+Yii::setAlias('@main-domain', $http.str_replace("backend.", "", $_SERVER['HTTP_HOST']));
+
 \Yii::$container->set('common\services\interfaces\IBlogService', 'common\services\implementations\BlogService');
 \Yii::$container->set('common\services\interfaces\IPageService', 'common\services\implementations\PageService');
 \Yii::$container->set('common\services\interfaces\IMenuService', 'common\services\implementations\MenuService');
