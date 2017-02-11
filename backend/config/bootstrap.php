@@ -6,3 +6,4 @@
 \Yii::$container->set('backend\services\interfaces\ISettingsService', 'backend\services\implementations\SettingsService');
 \Yii::$container->set('backend\services\interfaces\IItemAttributeMappingService', 'backend\services\implementations\ItemAttributeMappingService');
 \Yii::$container->set('backend\services\interfaces\ICatalogItemAttributeService', 'backend\services\implementations\CatalogItemAttributeService');
+\Yii::$container->set('backend\services\interfaces\ICatalogItemImageService', 'backend\services\implementations\CatalogItemImageService');

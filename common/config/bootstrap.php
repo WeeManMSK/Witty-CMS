@@ -20,3 +20,4 @@ Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 \Yii::$container->set('common\services\interfaces\ICatalogItemAttributeTypeService', 'common\services\implementations\CatalogItemAttributeTypeService');
 \Yii::$container->set('common\services\interfaces\ICatalogItemAttributeGroupService', 'common\services\implementations\CatalogItemAttributeGroupService');
 \Yii::$container->set('common\services\interfaces\IItemAttributeMappingService', 'common\services\implementations\ItemAttributeMappingService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemImageService', 'common\services\implementations\CatalogItemImageService');
