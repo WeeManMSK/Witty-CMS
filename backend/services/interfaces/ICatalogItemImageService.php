@@ -12,4 +12,10 @@ interface ICatalogItemImageService extends \common\services\interfaces\ICatalogI
      * @return mixed|void
      */
     public function add(string $url, int $id);
+
+    /**
+     * @param int $id
+     * @return int
+     */
+    public function removeAndReturnItemId(int $id) : int ;
 }

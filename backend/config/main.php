@@ -44,7 +44,7 @@ return [
             'access' => ['@'],
             'root' => [
                 'baseUrl'=>'@main-domain/uploads',
-                'basePath'=>'@frontend/docs/uploads',
+                'basePath'=>'@frontend/web/uploads',
                 'access' => ['read' => '*', 'write' => '*'],
                 'name' => 'uploads'
             ],

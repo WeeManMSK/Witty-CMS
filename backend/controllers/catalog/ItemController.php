@@ -2,6 +2,7 @@
 
 namespace backend\controllers\catalog;
 
+use Yii;
 use backend\controllers\ReferenceController;
 use backend\services\interfaces\ICatalogItemImageService;
 use common\services\interfaces\ICatalogItemService;
@@ -23,12 +24,15 @@ class ItemController extends ReferenceController
 
     public function actionUpdate($id)
     {
-        $attributesForSave = \Yii::$app->request->post('Attribute');
+        $attributesForSave = Yii::$app->request->post('Attribute');
         if (count($attributesForSave)>0) {
             $this->catalogItemService->updateAttributeValues($attributesForSave, $id);
         }
 
-        $this->catalogItemImageService->add(\Yii::$app->request->post('image'), $id);
+        $imageToSave = Yii::$app->request->post('image');
+        if ($imageToSave !== null) {
+            $this->catalogItemImageService->add(Yii::$app->request->post('image'), $id);
+        }
 
         return parent::actionUpdate($id);
     }
