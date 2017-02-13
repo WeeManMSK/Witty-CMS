@@ -42,9 +42,10 @@ $this->title='Settings';
                         'format' => 'raw',
                         'attribute' => 'theme_id',
                         'value' => DropdownWidget::widget([
+                            'attribute' => 'theme_id',
                             'model' => $model,
-                            'attribute' => 'theme',
                             'listOptions' => [
+                                'class' => 'theme',
                                 'key' => 'id',
                                 'value' => 'name',
                             ],

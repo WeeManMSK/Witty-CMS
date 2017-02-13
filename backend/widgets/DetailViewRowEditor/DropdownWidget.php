@@ -16,6 +16,7 @@ class DropdownWidget extends DetailViewRowEditorWidget
     public $key;
     public $value;
     public $listOptions;
+    public $attribute;
 
     /**
      * @inheritdoc
@@ -24,7 +25,7 @@ class DropdownWidget extends DetailViewRowEditorWidget
     {
         parent::init();
         /** @var ActiveRecord $class */
-        $class = get_class($this->model[$this->attribute]);
+        $class = get_class($this->model[$this->listOptions['class']]);
         $rows = $class::find()
             ->select([$this->listOptions['key'], $this->listOptions['value']])
             ->asArray()
@@ -51,7 +52,8 @@ class DropdownWidget extends DetailViewRowEditorWidget
         return $this->render('dropdown',[
             'values'=>$this->values,
             'value'=>$this->value,
-            'model'=>$this->model
+            'model'=>$this->model,
+            'attribute'=>$this->attribute
         ]);
     }
 
