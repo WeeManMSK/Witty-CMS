@@ -45,8 +45,8 @@ class Settings extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'version' => 'Version',
-            'is_offline' => 'Is Offline',
-            'is_development' => 'Is Development',
+            'is_offline' => 'Site is Offline',
+            'is_development' => 'Development Mode',
             'theme_id' => 'Theme',
         ];
     }
