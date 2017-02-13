@@ -1,4 +1,5 @@
 <?php
+use backend\widgets\DetailViewRowEditor\BooleanWidget;
 use backend\widgets\DetailViewRowEditor\DropdownWidget;
 use backend\widgets\EditableDetailView\EditableDetailView;
 /**
@@ -23,6 +24,20 @@ $this->title='Settings';
                     'version',
                     'is_offline',
                     'is_development',
+                    [
+                            'format' => 'raw',
+                            'attribute' => 'is_development',
+                            'value' => BooleanWidget::widget([
+                                'model' => $model,
+                                'attribute' => 'is_development'
+//                                'attribute' => 'theme',
+//                                'listOptions' => [
+//                                    'key' => 'id',
+//                                    'value' => 'name',
+//                                ],
+//                                'value' => $model->is_development
+                        ])
+                    ],
                     [
                         'format' => 'raw',
                         'attribute' => 'theme_id',
