@@ -9,7 +9,7 @@ class m170213_033521_insert_is_development_in_settings_table extends Migration
         $this->addColumn('{{%settings}}', 'is_development', $this->boolean()->notNull());
 
         $this->update('{{%settings}}', [
-            'is_development'=>1
+            'is_development'=>0
         ]);
     }
 

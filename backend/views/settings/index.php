@@ -22,6 +22,7 @@ $this->title='Settings';
                 'attributes'=> [
                     'version',
                     'is_offline',
+                    'is_development',
                     [
                         'format' => 'raw',
                         'attribute' => 'theme_id',
