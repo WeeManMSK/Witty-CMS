@@ -11,7 +11,8 @@ use yii;
  * @property string $version
  * @property integer $is_offline
  * @property integer $theme_id
- * 
+ * @property integer $is_development
+ *
  * @property Theme theme
  */
 class Settings extends \yii\db\ActiveRecord
@@ -31,7 +32,7 @@ class Settings extends \yii\db\ActiveRecord
     {
         return [
             [['version'], 'required'],
-            [['is_offline', 'theme_id'], 'integer'],
+            [['is_offline', 'theme_id', 'is_development'], 'integer'],
             [['version'], 'string', 'max' => 255],
         ];
     }
@@ -45,6 +46,7 @@ class Settings extends \yii\db\ActiveRecord
             'id' => 'ID',
             'version' => 'Version',
             'is_offline' => 'Is Offline',
+            'is_development' => 'Is Development',
             'theme_id' => 'Theme',
         ];
     }
