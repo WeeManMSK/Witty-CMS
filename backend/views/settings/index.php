@@ -22,20 +22,20 @@ $this->title='Settings';
                 'model'=>$model,
                 'attributes'=> [
                     'version',
-                    'is_offline',
-                    'is_development',
+                    [
+                        'format' => 'raw',
+                        'attribute' => 'is_offline',
+                        'value' => BooleanWidget::widget([
+                            'model' => $model,
+                            'attribute' => 'is_offline'
+                        ])
+                    ],
                     [
                             'format' => 'raw',
                             'attribute' => 'is_development',
                             'value' => BooleanWidget::widget([
                                 'model' => $model,
                                 'attribute' => 'is_development'
-//                                'attribute' => 'theme',
-//                                'listOptions' => [
-//                                    'key' => 'id',
-//                                    'value' => 'name',
-//                                ],
-//                                'value' => $model->is_development
                         ])
                     ],
                     [
