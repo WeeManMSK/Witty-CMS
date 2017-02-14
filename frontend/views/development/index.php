@@ -6,6 +6,11 @@
 
 $this->title = $settings->site_name;
 ?>
+<div class="hidden">
+    <span id="year">2017</span>
+    <span id="month">2</span>
+    <span id="day">20</span>
+</div>
 <div class="se-pre-con"></div>
 <div class="container">
     <div class="row">
