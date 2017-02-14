@@ -22,6 +22,7 @@ $this->title='Settings';
                 'model'=>$model,
                 'attributes'=> [
                     'version',
+                    'site_name',
                     [
                         'format' => 'raw',
                         'attribute' => 'is_offline',
