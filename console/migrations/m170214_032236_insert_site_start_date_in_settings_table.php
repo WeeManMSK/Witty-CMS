@@ -6,7 +6,7 @@ class m170214_032236_insert_site_start_date_in_settings_table extends Migration
 {
     public function up()
     {
-        $this->addColumn('{{%settings}}', 'site_start_date', $this->date->null());
+        $this->addColumn('{{%settings}}', 'site_start_date', $this->date()->null());
     }
 
     public function down()
