@@ -13,6 +13,7 @@ use yii;
  * @property integer $theme_id
  * @property string $site_name
  * @property integer $is_development
+ * @property \DateTime $site_start_date
  *
  * @property Theme theme
  */
@@ -35,6 +36,7 @@ class Settings extends \yii\db\ActiveRecord
             [['version'], 'required'],
             [['is_offline', 'theme_id', 'is_development'], 'integer'],
             [['version', 'site_name'], 'string', 'max' => 255],
+            [['site_start_date'], 'date']
         ];
     }
 
@@ -47,6 +49,7 @@ class Settings extends \yii\db\ActiveRecord
             'id' => 'ID',
             'version' => 'Version',
             'site_name' => 'Site name',
+            'site_start_date' => 'Site start date',
             'is_offline' => 'Site is Offline',
             'is_development' => 'Development Mode',
             'theme_id' => 'Theme',
