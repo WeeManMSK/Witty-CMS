@@ -3,7 +3,6 @@
 namespace frontend\controllers;
 
 use common\models\Settings;
-use frontend\services\interfaces\IPageService;
 use frontend\services\interfaces\ISettingsService;
 use frontend\services\interfaces\IThemeService;
 use yii\base\Theme;

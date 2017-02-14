@@ -9,7 +9,7 @@ use yii\helpers\Html;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Электрокомплект. Сайт в разработке</title>
+    <title><?= $this->title ?></title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/development-assets/images/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/development-assets/images/favicons/apple-touch-icon-60x60.png">
