@@ -25,17 +25,27 @@ $this->title='Menu Item';
                     'id',
                     'title',
                     [
+                        'format'=>'raw',
                         'class' => \yii\grid\DataColumn::class,
                         'attribute'=>'menu_id',
                         'value' => function($model){
-                            return $model->menu->name;
+                            return WtHtml::a($model->menu->name, ['/menu/update', 'id'=>$model->menu_id]);
                         }
                     ],
                     [
+                        'format'=>'raw',
                         'class' => \yii\grid\DataColumn::class,
                         'attribute'=>'parent_id',
                         'value' => function($model){
                             return $model->parent ? $model->parent->title : "";
+                        }
+                    ],
+                    [
+                        'format'=>'raw',
+                        'class' => \yii\grid\DataColumn::class,
+                        'attribute'=>'page_id',
+                        'value' => function($model){
+                            return WtHtml::a($model->page->title, ['/page/update', 'id'=>$model->page_id]);
                         }
                     ],
                     [
