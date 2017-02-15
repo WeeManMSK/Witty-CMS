@@ -45,7 +45,7 @@ class Menu extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'menu_type_id' => 'Menu Type ID',
+            'menu_type_id' => 'Menu Type',
         ];
     }
 
