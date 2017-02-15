@@ -12,6 +12,7 @@ class Menu
                 ['label' => '<i class="fa fa-circle-o"></i>Pages', 'url' => ['/page']],
                 ['label' => '<i class="fa fa-circle-o"></i>Blog', 'url' => ['/blog']],
                 ['label' => '<i class="fa fa-question"></i>Faq', 'url' => ['/faq']],
+                ['label' => '<i class="fa fa-bars"></i>Menu', 'url' => ['/menu']],
                 ['label' => '<i class="fa fa-folder"></i>File manager', 'url' => ['/elfinder/manager']],
             ]],
             ['label' => '<i class="fa fa-shopping-basket"></i><span>Shop</span>', 'url' => ['/shop'], 'items' => [
