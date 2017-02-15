@@ -3,7 +3,7 @@
 namespace common\services\interfaces;
 
 
-interface IMenuItemService
+interface IMenuItemService extends IReferenceService
 {
 
 }
