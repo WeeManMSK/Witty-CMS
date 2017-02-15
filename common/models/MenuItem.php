@@ -22,6 +22,7 @@ use yii\helpers\ArrayHelper;
  * @property MenuItem[] $menuItems
  * @property array $menuList
  * @property array $menuItemList
+ * @property array $pageList
  * @property Page $page
  */
 class MenuItem extends \yii\db\ActiveRecord
@@ -102,6 +103,13 @@ class MenuItem extends \yii\db\ActiveRecord
      */
     public function getMenuList(){
         return ArrayHelper::map(Menu::find()->all(), 'id', 'name');
+    }
+
+    /**
+     * @return array
+     */
+    public function getPageList(){
+        return ArrayHelper::map(Page::find()->all(), 'id', 'title');
     }
 
     /**

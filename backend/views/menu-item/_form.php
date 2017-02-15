@@ -35,6 +35,7 @@ $form = ActiveForm::begin([
                 <?= $form->field($model, 'subtitle', FormHelper::FormHorizontalFieldOptions)->textInput() ?>
                 <?= $form->field($model, 'menu_id', FormHelper::FormHorizontalFieldOptions)->dropDownList($model->menuList) ?>
                 <?= $form->field($model, 'parent_id', FormHelper::FormHorizontalFieldOptions)->dropDownList($model->menuItemList, ['prompt'=>'Not set']) ?>
+                <?= $form->field($model, 'page_id', FormHelper::FormHorizontalFieldOptions)->dropDownList($model->pageList) ?>
                 <?= $form->field($model, 'item_order', FormHelper::FormHorizontalFieldOptions)->input("number") ?>
                 <?= $form->field($model, 'is_visible', FormHelper::FormHorizontalCheckboxOptions)->checkbox() ?>
             </div>
