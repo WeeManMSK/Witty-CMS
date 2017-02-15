@@ -14,6 +14,7 @@ $this->title='Menu';
     <div class="box-header with-border">
         <h3 class="box-title">Menu</h3>
         <div class="box-tools pull-right">
+            <?= WtHtml::aAsButton('Menu items', ['/menu-item'], ['iconClass'=>'fa fa-bars'] )?>
             <?= WtHtml::aAsButton('Add', ['create'], ['iconClass'=>'fa fa-plus'] )?>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%menu_item}}".
@@ -19,6 +20,8 @@ use yii;
  * @property Menu $menu
  * @property MenuItem $parent
  * @property MenuItem[] $menuItems
+ * @property array $menuList
+ * @property array $menuItemList
  * @property Page $page
  */
 class MenuItem extends \yii\db\ActiveRecord
@@ -92,5 +95,19 @@ class MenuItem extends \yii\db\ActiveRecord
     public function getPage()
     {
         return $this->hasOne(Page::className(), ['id' => 'page_id']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getMenuList(){
+        return ArrayHelper::map(Menu::find()->all(), 'id', 'name');
+    }
+
+    /**
+     * @return array
+     */
+    public function getMenuItemList(){
+        return ArrayHelper::map(MenuItem::find()->where(['not in','id',$this->id])->all(), 'id', 'title');
     }
 }
