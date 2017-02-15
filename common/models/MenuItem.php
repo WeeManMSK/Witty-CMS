@@ -108,6 +108,6 @@ class MenuItem extends \yii\db\ActiveRecord
      * @return array
      */
     public function getMenuItemList(){
-        return ArrayHelper::map(MenuItem::find()->where(['not in','id',$this->id])->all(), 'id', 'title');
+        return ArrayHelper::map(MenuItem::find()->where(['not in','id',$this->id != null ? $this->id : 0])->all(), 'id', 'title');
     }
 }
