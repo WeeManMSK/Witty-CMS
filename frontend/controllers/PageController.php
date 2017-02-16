@@ -41,7 +41,7 @@ class PageController extends BaseController
     {
         switch ($page_type_id){
             case PageType::CATALOG :
-                return $this->redirect(['catalog']);
+                return $this->redirect(['/catalog']);
                 break;
             default:
                 return parent::render('view', $params);

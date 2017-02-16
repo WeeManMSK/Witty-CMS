@@ -40,6 +40,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:(catalog)>' => '<controller>/index',
+                '<controller:(catalog)/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:(catalog)>/<action:\w+>' => '<controller>/<action>',
                 '<url:\w+>' => 'page/view'
             ],
         ],
