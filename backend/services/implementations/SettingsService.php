@@ -4,6 +4,7 @@ namespace backend\services\implementations;
 
 
 use backend\services\interfaces\ISettingsService;
+use Yii;
 
 class SettingsService extends \common\services\implementations\SettingsService implements ISettingsService
 {
@@ -17,6 +18,14 @@ class SettingsService extends \common\services\implementations\SettingsService i
         $settings = $this->get();
         $settings->load($post);
 
-        return ($settings->save());
+        $result = $settings->save();
+
+        // TODO Add SaveResult object with Result as Boolean and Array with errors
+        $session = Yii::$app->session;
+        foreach ($settings->errors as $error){
+            $session->addFlash('error', $error[0]);
+        }
+
+        return $result;
     }
 }
