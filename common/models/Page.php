@@ -4,6 +4,7 @@ namespace common\models;
 
 use yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "wt_page".
@@ -25,6 +26,7 @@ use yii\behaviors\TimestampBehavior;
  * @property User $author
  * @property User $modifiedBy
  * @property PageType $pageType
+ * @property array $pageTypeList
  */
 class Page extends \yii\db\ActiveRecord
 {
@@ -109,5 +111,12 @@ class Page extends \yii\db\ActiveRecord
                 'class' => TimestampBehavior::className()
             ]
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getPageTypeList(){
+        return ArrayHelper::map(PageType::find()->all(), 'id', 'code');
     }
 }

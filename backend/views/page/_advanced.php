@@ -8,4 +8,5 @@ use backend\helper\FormHelper;
  */
 
 ?>
+<?= $form->field($model, 'page_type_id', FormHelper::FormHorizontalFieldOptions)->dropDownList($model->pageTypeList, ['prompt'=>'Not set']) ?>
 <?= $form->field($model, 'layout', FormHelper::FormHorizontalFieldOptions)->textInput() ?>
