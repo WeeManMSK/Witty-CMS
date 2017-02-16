@@ -16,6 +16,9 @@ use yii;
  */
 class PageType extends \yii\db\ActiveRecord
 {
+    const CATALOG = 1;
+    const FAQ = 2;
+    const BLOG = 3;
     /**
      * @inheritdoc
      */

@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 
+use common\models\PageType;
 use frontend\services\interfaces\IPageService;
 
 class PageController extends BaseController
@@ -24,7 +25,7 @@ class PageController extends BaseController
         $this->pageService = $pageService;
         parent::__construct($id, $module, $config);
     }
-    
+
     public function actionView(string $url){
         $page = $this->pageService->getPage($url);
         if ($page->layout != null){
@@ -38,8 +39,12 @@ class PageController extends BaseController
 
     private function renderByPageType(int $page_type_id = null, array $params = [])
     {
-        if ($page_type_id === null) {
-            return parent::render('view', $params);
+        switch ($page_type_id){
+            case PageType::CATALOG :
+                return $this->redirect(['catalog']);
+                break;
+            default:
+                return parent::render('view', $params);
         }
     }
 }
