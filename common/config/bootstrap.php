@@ -25,3 +25,4 @@ Yii::setAlias('@main-domain', $http.str_replace("backend.", "", $_SERVER['HTTP_H
 \Yii::$container->set('common\services\interfaces\ICatalogItemAttributeGroupService', 'common\services\implementations\CatalogItemAttributeGroupService');
 \Yii::$container->set('common\services\interfaces\IItemAttributeMappingService', 'common\services\implementations\ItemAttributeMappingService');
 \Yii::$container->set('common\services\interfaces\ICatalogItemImageService', 'common\services\implementations\CatalogItemImageService');
+\Yii::$container->set('common\services\interfaces\ICatalogItemAttributeMappingService', 'common\services\implementations\CatalogItemAttributeMappingService');
