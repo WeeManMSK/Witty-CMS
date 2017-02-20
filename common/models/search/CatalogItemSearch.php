@@ -27,4 +27,23 @@ class CatalogItemSearch
 
         return $dataProvider;
     }
+
+    public function searchFull($params)
+    {
+        $query = CatalogItem::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'name' => SORT_DESC,
+                ]
+            ],
+        ]);
+
+        return $dataProvider;
+    }
 }

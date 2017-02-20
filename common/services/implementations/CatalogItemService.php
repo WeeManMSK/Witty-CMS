@@ -2,7 +2,6 @@
 
 namespace common\services\implementations;
 
-use backend\services\interfaces\IItemAttributeMappingService;
 use common\models\CatalogItem;
 use common\models\search\CatalogItemSearch;
 use common\services\interfaces\ICatalogItemService;
@@ -12,12 +11,6 @@ use yii\web\NotFoundHttpException;
 
 class CatalogItemService implements ICatalogItemService
 {
-    private $attributeMappingService;
-
-    public function __construct(IItemAttributeMappingService $attributeMappingService){
-        $this->attributeMappingService = $attributeMappingService;
-    }
-
     /**
      * @param array $params
      * @return ActiveDataProvider
@@ -73,14 +66,5 @@ class CatalogItemService implements ICatalogItemService
     {
         $model = $this->get($id);
         $model->delete();
-    }
-
-    public function updateAttributeValues(array $attributesPost, int $id)
-    {
-        $this->attributeMappingService->removeBooleanValuesIfNotExist($attributesPost, $id);
-        foreach ($attributesPost as $attributeId=>$value){
-            $attributeMapping = $this->attributeMappingService->getMapping($attributeId, $id);
-            $this->attributeMappingService->updateMapping($attributeMapping, $value);
-        }
     }
 }

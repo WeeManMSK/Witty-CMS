@@ -5,7 +5,7 @@ namespace backend\controllers\catalog;
 use Yii;
 use backend\controllers\ReferenceController;
 use backend\services\interfaces\ICatalogItemImageService;
-use common\services\interfaces\ICatalogItemService;
+use backend\services\interfaces\ICatalogItemService;
 
 class ItemController extends ReferenceController
 {
