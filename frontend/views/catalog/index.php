@@ -7,7 +7,7 @@
 
 ?>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 attribute-list">
         <?= $this->render('_attributeList',[
                 'attributes' => $attributes
         ])?>
