@@ -32,7 +32,14 @@ $this->title = 'Items';
                             return $model->type->name;
                         }
                     ],
-                    'description:html',
+                    [
+                        'class'=> \yii\grid\DataColumn::className(),
+                        'format'=>'html',
+                        'attribute'=>'description',
+                        'value' => function($model){
+                            return substr($model->description, 0, 150);
+                        }
+                    ],
                     [
                         'class' => BooleanColumn::className(),
                         'attribute' => 'is_deleted'
