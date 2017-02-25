@@ -22,8 +22,11 @@ class CatalogController extends BaseController
 
     public function actionIndex(){
         $attributeSearch = \Yii::$app->request->post('attribute');
+        if ($attributeSearch === null) {
+            $attributeSearch = [];
+        }
         return $this->render('index',[
-            'items' => $this->itemService->search(\Yii::$app->request->queryParams),
+            'items' => $this->itemService->search($attributeSearch),
             'attributes' => $this->attributeService->getForSearch(\Yii::$app->request->queryParams),
             'attributeSearch' => $attributeSearch
         ]);
