@@ -21,9 +21,11 @@ class CatalogController extends BaseController
     }
 
     public function actionIndex(){
+        $attributeSearch = \Yii::$app->request->post('attribute');
         return $this->render('index',[
             'items' => $this->itemService->search(\Yii::$app->request->queryParams),
-            'attributes' => $this->attributeService->getForSearch(\Yii::$app->request->queryParams)
+            'attributes' => $this->attributeService->getForSearch(\Yii::$app->request->queryParams),
+            'attributeSearch' => $attributeSearch
         ]);
     }
 }
