@@ -31,4 +31,10 @@ class CatalogController extends BaseController
             'attributeSearch' => $attributeSearch
         ]);
     }
+
+    public function actionView(int $id){
+        return $this->render('item/view', [
+            'item'=>$this->itemService->get($id)
+        ]);
+    }
 }
