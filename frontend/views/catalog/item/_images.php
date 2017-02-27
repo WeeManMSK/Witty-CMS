@@ -6,19 +6,17 @@
 ?>
 
 <?php
-$items = [
-    [
-        'url' => 'http://farm8.static.flickr.com/7429/9478294690_51ae7eb6c9_b.jpg',
-        'src' => 'http://farm8.static.flickr.com/7429/9478294690_51ae7eb6c9_s.jpg',
-        'options' => array('title' => 'Camposanto monumentale (inside)') ]
-];
-//foreach ($item->images as $image){
-//    array_push($items, [
-//        'url' => 'http://farm8.static.flickr.com/7429/9478294690_51ae7eb6c9_b.jpg',
-//        'src' => 'http://farm8.static.flickr.com/7429/9478294690_51ae7eb6c9_s.jpg',
-//        'options' => array('title' => 'Camposanto monumentale (inside)')
-//    ]);
-//}
+$items = [];
+foreach ($item->images as $image){
+    array_push($items, [
+        'url' => $image->image_url,
+        'src' => $image->image_url,
+        'options' => [
+            'width'=>100,
+            'title' => $image->title
+        ]
+    ]);
+}
 
 ?>
 <?= dosamigos\gallery\Gallery::widget(['items' => $items]);?>
