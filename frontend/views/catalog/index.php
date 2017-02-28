@@ -14,7 +14,7 @@
             'attributeSearch' => $attributeSearch
         ])?>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 item-list">
         <?= $this->render('_items', [
             'items'=>$items
         ])?>

@@ -5,6 +5,7 @@
 use yii\bootstrap\Html;
 ?>
 
-<?= $model->name ?>
-<?= $model->description ?>
-<?= Html::a("Details",['catalog/view','id'=>$model->id])?>
+<h3 class="title"><?= Html::a($model->name,['catalog/view','id'=>$model->id])?></h3>
+<div class="description">
+    <?= $model->description ?>
+</div>
