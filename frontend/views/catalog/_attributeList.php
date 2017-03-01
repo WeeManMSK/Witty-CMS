@@ -8,10 +8,11 @@ use yii\helpers\Html;
 
 ?>
 
-<h3 class="text-center">Attribute List</h3>
 <?php $form = \yii\widgets\ActiveForm::begin()?>
 <?php foreach ($attributes as $attribute){?>
     <?= $this->render('attribute/attribute', [ 'attribute'=>$attribute, 'attributeSearch' => $attributeSearch]) ;?>
 <?php } ?>
-<?= Html::submitButton('Search', ['class'=>'btn btn-default'])?>
+<div class="button">
+    <?= Html::submitButton('Search', ['class'=>'btn btn-default'])?>
+</div>
 <?php \yii\widgets\ActiveForm::end(); ?>

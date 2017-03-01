@@ -1318,7 +1318,17 @@ button:focus {
   }
 }
 .attribute-list {
-  background: white;
+  border-color: #9dd1f6;
+  border: 1px solid;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.attribute-list .title {
+  text-align: center;
+  color: white;
+}
+.attribute-list .button {
+  text-align: center;
 }
 .gallery-item img {
   width: 100px;
@@ -1335,6 +1345,6 @@ button:focus {
   border-bottom: 1px solid #9dd1f6;
   margin-bottom: 15px;
 }
-.item-details .description {
+.container {
   color: white;
 }
