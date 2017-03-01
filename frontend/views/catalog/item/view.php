@@ -8,11 +8,11 @@ use yii\bootstrap\Tabs;
 $this->title = $item->name
 ?>
 
-<div class="row">
+<div class="row item-details">
     <div class="col-md-4">
         <?= $this->render('_images',['item'=>$item]); ?>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 description">
         <?= Tabs::widget([
             'items'=>[
                 [

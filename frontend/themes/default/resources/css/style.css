@@ -1335,3 +1335,6 @@ button:focus {
   border-bottom: 1px solid #9dd1f6;
   margin-bottom: 15px;
 }
+.item-details .description {
+  color: white;
+}
