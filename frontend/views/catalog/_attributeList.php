@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 /**
- * @var $this \yii\web\View
+ * @var $this \frontend\core\View
  * @var $attributes \common\models\CatalogItemAttribute[]
  * @var $attributeSearch array
  */
