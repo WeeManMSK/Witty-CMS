@@ -36,7 +36,7 @@ class Settings extends \yii\db\ActiveRecord
             [['version'], 'required'],
             [['is_offline', 'theme_id', 'is_development'], 'integer'],
             [['version', 'site_name'], 'string', 'max' => 255],
-            [['site_start_date'], 'date']
+            [['site_start_date'], 'date', 'format' => 'php:Y-m-d']
         ];
     }
 
