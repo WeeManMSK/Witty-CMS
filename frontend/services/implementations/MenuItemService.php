@@ -13,23 +13,19 @@ class MenuItemService extends \common\services\implementations\MenuItemService i
 
     public function getItems(string $menuType) : array
     {
-        $menuQuery = MenuType::find()
-            ->joinWith("menus")
-            ->joinWith("menus.menuItems")
-            ->where(['menu_type.code'=>$menuType])
+        $menuQuery = MenuItem::find()
+            ->joinWith("menu")
+            ->joinWith("menu.menuType as mt")
+            ->where(['mt.code'=>$menuType])
             ->andWhere(['menu_item.parent_id'=>null])
-            ->all();
+            ->orderBy("item_order asc");
 
         $menuResult = [];
 
         /** @var MenuItem $menuItem */
-        foreach ($menuQuery as $menuItem){
-            foreach ($menuItem->menus as $menu) {
-                foreach ($menu->menuItems as $menuItem){
-                    $menuItem = $this->createMenuItem($menuItem);
-                    array_push($menuResult, $menuItem);
-                }
-            }
+        foreach ($menuQuery->all() as $menuItem){
+            $menuItem = $this->createMenuItem($menuItem);
+            array_push($menuResult, $menuItem);
         }
 
         return $menuResult;
